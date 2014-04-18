@@ -1,4 +1,3 @@
-
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -126,9 +125,9 @@
 								    	echo "<textarea id='comment' placeholder='Comments...'></textarea>";
 								    }
 								    if(!empty($commentByRecommending))
-								    	echo "Comments by Recommending Authority".$commentByRecommending;
+								    	echo "Comments by Recommending Authority ".$commentByRecommending<br>;
 								     if(!empty($commentByApproving))
-								    	echo "Comments by Approving Authority".$commentByApproving;
+								    	echo "Comments by Approving Authority ".$commentByApproving<br><br>.;
 
 									if($userId==$query_row['approvingAuthority']){
 
