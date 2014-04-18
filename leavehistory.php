@@ -1,4 +1,3 @@
-
 <?php
 	include 'connect.inc.php';
 	
@@ -48,9 +47,7 @@
         			   	   "<td>".$query_row['specialClBalance']."</td>".
 							"<td>".$query_row['specialLeaveBalance']."</td>".
 							"<td>".$query_row['halfPayLeaveBalance']."</td>".
-							"<td>".$query_row['commutedLeaveBalance']."</td>".
 							"<td>".$query_row['earnedLeaveBalance']."</td>".
-							"<td>".$query_row['extraOrdinaryLeaveBalance']."</td>".
 							"<td>".$query_row['maternityLeaveBalance']."</td>".
 							"<td>".$query_row['hospitalLeaveBalance']."</td>".
 							"<td>".$query_row['quarantineLeaveBalance']."</td>".
@@ -173,9 +170,7 @@ function displaytable($LeaveType){
 					<td>Special Casual Leave</td>
 					<td>Special Leave</td>
 					<td>Half Pay Leave</td>
-					<td>Commuted Leave</td>
 					<td>Earned Leave</td>
-					<td>Extra Ordinary Leave</td>
 					<td>Maternity Leave</td>
 					<td>Hospital Leave</td>
 					<td>Quarantine Leave</td>
