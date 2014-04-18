@@ -73,15 +73,20 @@
             .ul-nav{                
                 background:rgba(0,0,0, 0.7);
                 font-weight: 600;
+                padding:10px;
             }   
             .ul-nav li a{
+                border-radius: 2px;
+                line-height: 2.5;
                 color: white;
-                text-shadow: 0.5px 0.5px 0.5px #111; 
+                display:block;
                 text-decoration: none;
+                padding:0 20px 0 20px;
             }
             .ul-nav li a:hover,
             .ul-nav li a:focus {
-                background: #111;
+                background: rgba(52, 152, 219, 1);
+                color:white;
             }
             #ulnav{
                 margin-left: 0px;   
@@ -90,6 +95,7 @@
             }
             #ihatethis{
                 color:#2c3e50;
+                width:200px;
             }
             #ihatethis:hover{
                 background-color: #e74c3c;
@@ -98,7 +104,7 @@
         </style>
         <ul class="ul-nav" id = 'ulnav'>
             <li>
-                <a href="#" class="pure-button pure-button-primary" id = 'ihatethis' style="padding-left:20px;padding-right:20px;border-radius:2px;" onclick="compose();">Apply for Leave</a>
+                <a href="#" class="pure-button pure-button-primary" id = 'ihatethis' style="border-radius:2px;" onclick="compose();">Apply for Leave</a>
             </li>
             <li style="margin-top:20px;">
                 <a href="#" onclick="navigate_box('inbox');">Inbox</a>

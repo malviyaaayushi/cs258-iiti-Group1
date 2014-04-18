@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Lato);
 html, body{
 	margin: 0px;
 	min-width:1200px;
@@ -6,23 +6,7 @@ html, body{
 	height: 100%;
 	width: 100%;
 	/*text-shadow:0 1px 0 #333;*/
-	font-family: 'Roboto';
-	z-index:0;
-
-}
-article, section, nav, header, footer, aside{
-	margin: 0px;
-	border: 0px;
-	padding: 0px;
-}@import url(http://fonts.googleapis.com/css?family=Roboto);
-html, body{
-	margin: 0px;
-	min-width:1200px;
-	min-height:1000px;
-	height: 100%;
-	width: 100%;
-	/*text-shadow:0 1px 0 #333;*/
-	font-family: 'Roboto';
+	font-family: 'Lato', sans-serif;
 	z-index:0;
 
 }

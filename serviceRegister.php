@@ -11,7 +11,7 @@
 		margin:0 auto;		
 		margin-top:100px;
 		color:black;	
-		overflow:hidden;
+		overflow:hidden;	
 	}
 	#part1{
 		width:1800px;
