@@ -1,5 +1,4 @@
 
-
 	    	<table style="width:90%;align:center;">
 	    		<tr>
 	    			<td>Nature of Leave:</td>
@@ -7,10 +6,8 @@
 	    				<select id="nonClLeaveType" name="leaveType" class="pure-input-1-1">
 						<option value="specialClBalanace" selected>Special CL </option>
 						<option value="specialLeaveBalance"> Special Leave</option>
-						<option value="halfPayLeaveBalance"> Half Pay (Non Commuted)Leave </option>
-						<option value="commutedLeaveBalance"> Half Pay(Commuted) Leave</option>
+						<option value="halfPayLeaveBalance"> Half Pay Leave </option>
 						<option value="earnedLeaveBalance"> Earned Leave</option>
-						<option value="extraordinaryLeaveBalance"> Extraordinary Leave</option>
 						<option value="maternityLeaveBalance"> Maternity Leave</option>
 						<option value="hospitalLeaveBalance"> Hospital Leave</option>
 						<option value="quarantineLeaveBalance ">Quarantine Leave</option>
