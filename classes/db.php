@@ -80,6 +80,12 @@ class db{
 		return $this->action('DELETE', $table, $where);
 	}
 
+	// public function updatePassword($table, $field = array(), $where = array()){
+	// 	$sql = "UPDATE {$table} SET {$field[0]} {$field[1]} ? WHERE {$where[0]} {$where[1]} ?";
+	// 	echo $sql;
+	// 	//if(!$this->query($sql, array($field[2], $where[2])))
+	// }
+
 	public function insert($table, $fields = array()){
 		if(count($fields)){
 			$keys = array_keys($fields);
@@ -98,17 +104,9 @@ class db{
 		return false;
 	}
 
-	public function update($table, $id, $fields = array()){
-			$set = '';
-			$x = 1;
-
-			foreach($fields as $name => $field){
-				$set .= "{$name} = ?";
-				if($x++ < count($fields)) $set .= ', ';
-			}
-
-			$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
-			if(!$this->query($sql, $fields)->error()){
+	public function update($table, $id, $field, $value){
+			$sql = "UPDATE {$table} SET {$field} = ? WHERE id = {$id}";
+			if(!$this->query($sql, array($value))->error()){
 				return true;	
 			}
 		return false;

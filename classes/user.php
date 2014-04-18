@@ -93,12 +93,19 @@
 			$this->_serviceRegister = $this->_db->get('service_register_tb', array('userID', '=', $this->_data->id));	
 		}
 
-		private function verify($userCredentials = NULL, $password){
+		public function verify($userCredentials = NULL, $password){
 			if($userCredentials){
 				$hash = hash::make($password, $userCredentials->salt);
 				return ($hash == $userCredentials->password)?true:false;
 			}
 			return false;
+		}
+
+		public function changePassword($newPassword){
+			$salt = hash::salt(32);
+			$hash = hash::make($newPassword, $salt);
+			$this->_db->update('login_credentials_tb', $this->_data->id, 'password', $hash);
+			$this->_db->update('login_credentials_tb', $this->_data->id, 'salt', $salt);
 		}
 
 		public function login($username, $password){

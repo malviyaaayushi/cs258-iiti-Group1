@@ -33,7 +33,7 @@
         background-image:url('background.jpg');        
     }
     #container{ 
-        top:48px;         
+        top:47px;         
         height:100%;
         min-width:1000px;
     }
@@ -134,6 +134,9 @@
                         </li>'; 
                 }
             ?>
+            <li>
+                <a href="#" onclick="navigate('settings.php');">Change Password</a>
+            </li>
         </ul>
 </div>
 

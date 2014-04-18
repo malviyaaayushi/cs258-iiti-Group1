@@ -9,11 +9,9 @@
 	#wrapper{
 		width:1000px;	
 		margin:0 auto;		
-		border-radius:5px;
 		margin-top:100px;
 		color:black;	
 		overflow:hidden;
-		border:20px solid rgba(0,0,0,0.7);	
 	}
 	#part1{
 		width:1800px;
