@@ -1,6 +1,6 @@
 
 <div>
-	<input type='text' id = 'adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:40%;margin-right:10px;float:right;' onkeyUp='searchAdminPanel(this.value)'>
+	<!--input type='text' id ='adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:40%;margin-right:10px;float:right;' onkeyUp='searchAdminPanel(this.value)'-->
 </div>
 
 <div id='userLeaveRecords'>

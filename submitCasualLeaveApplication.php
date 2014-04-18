@@ -12,7 +12,7 @@
 			$leaveReason = $_POST['leaveReason'];
 			$recommendingAuthority = $_POST['recommendingAuthority'];
 			$approvingAuthority = $_POST['approvingAuthority'];
-			$leaveType='clBalance';
+			$leaveType='casualLeaveBalance';
 			
 			if( !empty($fromDate) && !empty($toDate) && !empty($leaveReason) && 
 				!empty($recommendingAuthority) && !empty($approvingAuthority) ){
@@ -43,7 +43,7 @@
 								 
 								$leaveReason = mysql_real_escape_string($leaveReason);							
 					
-								$query= "INSERT INTO leave_details_tb VALUES (NULL, '".$userId."', '".$user->data()->name."', '1' ,NOW(),FROM_UNIXTIME($fromDate),'$numberOfDays', '$leaveReason','$recommendingAuthority', '$approvingAuthority', '$leaveType','','','', '','',0,'')";
+								$query= "INSERT INTO leave_details_tb VALUES (NULL, '".$userId."', '".$user->data()->name."', '1' ,NOW(),FROM_UNIXTIME($fromDate),'$numberOfDays', '$leaveReason','$recommendingAuthority', '$approvingAuthority', '$leaveType','','','', '','',0,'','')";
 								
 								if($query_run = mysql_query($query)){
 									
@@ -73,7 +73,11 @@
 					echo "All fields are required";
 				}			
 			
-			}
-	}
+			}else{
+					echo "All fields are required";
+				}	
+	}else{
+			echo "All fields are required";
+		}	
 	
 ?>

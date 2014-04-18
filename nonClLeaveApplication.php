@@ -1,13 +1,15 @@
 
+
 	    	<table style="width:90%;align:center;">
 	    		<tr>
 	    			<td>Nature of Leave:</td>
 	    			<td>
 	    				<select id="nonClLeaveType" name="leaveType" class="pure-input-1-1">
-						<option value="specialClBalanace" selected>Special CL </option>
+						<option value="specialClBalance" selected>Special CL </option>
 						<option value="specialLeaveBalance"> Special Leave</option>
 						<option value="halfPayLeaveBalance"> Half Pay Leave </option>
 						<option value="earnedLeaveBalance"> Earned Leave</option>
+						<option value="extraordinaryLeaveBalance"> Extraordinary Leave</option>
 						<option value="maternityLeaveBalance"> Maternity Leave</option>
 						<option value="hospitalLeaveBalance"> Hospital Leave</option>
 						<option value="quarantineLeaveBalance ">Quarantine Leave</option>
@@ -66,7 +68,7 @@
 			 
 	    	</p>
 	    	<p style="margin-left:10%;">
-	    		<input id="nonClAgreeToTerms" name="agreeToTerms" type="checkbox">I agree
+	    		<input id="nonClAgreeToTerms" name="agreeToTerms" type="checkbox" checked>I agree
 	    	</p>
 	    	
 

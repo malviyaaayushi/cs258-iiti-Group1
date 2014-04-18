@@ -33,7 +33,7 @@
         background-image:url('background.jpg');        
     }
     #container{ 
-        top:47px;         
+        top:48px;         
         height:100%;
         min-width:1000px;
     }
@@ -53,8 +53,7 @@
         position:fixed;
         height:90px;
         width: 100%;
-        background: #c0392b;
-        color: #aaa;
+        background-image:url('background_search.jpg'); 
         z-index:1;
         top:48px;
     }
@@ -66,6 +65,17 @@
     #registration_tb > input{
         width:300px;
     }
+    .search_box_wrapper{
+        background:rgba(0,0,0, 0.7);
+        left:250px; 
+        position:fixed;
+        height:90px;
+        width: 100%;
+        top:48px;
+    }
+    .highlight{
+        background: white;
+    }
 </style>
 
 <div id="navigation">
@@ -73,86 +83,82 @@
             .ul-nav{                
                 background:rgba(0,0,0, 0.7);
                 font-weight: 600;
-                padding:10px;
             }   
             .ul-nav li a{
-                border-radius: 2px;
-                line-height: 2.5;
                 color: white;
-                display:block;
+                text-shadow: 0.5px 0.5px 0.5px #111; 
                 text-decoration: none;
-                padding:0 20px 0 20px;
+            
             }
             .ul-nav li a:hover,
             .ul-nav li a:focus {
-                background: rgba(52, 152, 219, 1);
-                color:white;
+                background: #111;
             }
             #ulnav{
                 margin-left: 0px;   
                 height: 100%;
                 padding-top: 48px;
+                margin-top: 0px;
             }
             #ihatethis{
-                color:#2c3e50;
-                width:200px;
+                color:white;
+                background-color: #e74c3c;
             }
             #ihatethis:hover{
-                background-color: #e74c3c;
-                color:white;
+                background-color: #2c3e50;
+                color:black;
             }
         </style>
         <ul class="ul-nav" id = 'ulnav'>
             <li>
-                <a href="#" class="pure-button pure-button-primary" id = 'ihatethis' style="border-radius:2px;" onclick="compose();">Apply for Leave</a>
+                <a href="#" class="pure-button pure-button-primary" id = 'ihatethis' style="padding-left:20px;padding-right:20px;border-radius:2px;" onclick="compose();">Apply for Leave</a>
             </li>
             <li style="margin-top:20px;">
-                <a href="#" onclick="navigate_box('inbox');">Inbox</a>
+                <a href="#" id="inbox" onclick="navigate_box('inbox');">Inbox</a>
             </li>
             <li>
-                <a href="#" onclick="navigate_box('outbox');">Outbox</a>
+                <a href="#" id="outbox" onclick="navigate_box('outbox');">Outbox</a>
             </li>
             <li>
-                <a href="#" onclick="navigate_box('trashBox');">Trash Box</a>
+                <a href="#" id="trashBox" onclick="navigate_box('trashBox');">Trash Box</a>
             </li>
             <li>
-                <a href="#" onclick="navigate('profile.php');">Profile</a>
+                <a href="#" id="profile" onclick="navigate('profile');">Profile</a>
             </li>
             <li>
-                <a href="#" onclick="navigate('servicebook.php');">Service Book</a>
+                <a href="#" id="servicebook" onclick="navigate('servicebook');">Service Book</a>
             </li>
             <li>
-                <a href="#" onclick="navigate('leaveHistory.php');">Leave Account</a>
+                <a href="#" id="leaveAccount" onclick="navigate('leaveAccount');">Leave Account</a>
             </li>
              <li>
-                <a href="#" onclick="navigate('leaveTravelConcession.php');">LTC Record</a>
+                <a href="#" id="leaveTravelConcession" onclick="navigate('leaveTravelConcession');">LTC Record</a>
             </li>
             <li>
-                <a href="#" onclick="navigate('LTCDeclaration.php');">LTC Declaration</a>
+                <a href="#" id="LTCDeclaration" onclick="navigate('LTCDeclaration');">LTC Declaration</a>
             </li>
             <li>
-                <a href="#" onclick="navigate('serviceRegister.php');">Service Register</a>
+                <a href="#" id="serviceRegister" onclick="navigate('serviceRegister');">Service Register</a>
             </li>
             <?php 
                 if($user->data()->actorrank == 1){
                     echo '<li>
-                            <a href = "#" onclick = "navigate(\'adminPanel2.php\');">Admin Panel</a>
+                            <a href = "#" onclick = "navigate(\'adminPanel\');">Admin Panel</a>
                         </li>'; 
                 }
             ?>
-            <li>
-                <a href="#" onclick="navigate('settings.php');">Change Password</a>
-            </li>
         </ul>
 </div>
 
 <div id = 'pseudoDiv'></div>
-<div id = 'container' > 
+<div id = 'container'> 
     <div id="navigation_content">
         <div class="searchBox l-box-lrg pure-g">
-            <form class="pure-form" id="search_form" style='display:inline;'>
-                <input type="text" id="searchBox" class="pure-form input-rounded" placeholder="Search..." style="width:40%;margin:0;" onkeyup="search(this.value, &quot;inbox&quot;)" ;="">    
-            </form>
+            <div class="search_box_wrapper">
+                <form class="pure-form" id="search_form" style='display:inline;vertical-align:center;line-height:90px;padding-left:30px;'>
+                    <input type="text" id="searchBox" class="pure-form input-rounded" placeholder="Search..." style="width:40%;margin:0;" onkeyup="search(this.value, &quot;inbox&quot;)" ;="">    
+                </form>
+            </div>
         </div>
         <div id='box_content' >
             <?php include 'inbox.php';?>
@@ -183,6 +189,7 @@
 <script type="text/javascript" src = "javascript/biodata.js"></script>
 <script type="text/javascript" src = 'javascript/ajaxSearch.js'></script>
 <script>
+
     function navigate(pageName){
         if(window.XMLHttpRequest){
             xmlhttp = new XMLHttpRequest();
@@ -194,7 +201,7 @@
                 document.getElementById('navigation_content').innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open('GET', pageName, true);
+        xmlhttp.open('GET', pageName+'.php', true);
         xmlhttp.send();
     }
     
@@ -267,6 +274,7 @@
     }
     
     function navigate_main_content(pageName){
+        // for admin panel
         if(window.XMLHttpRequest){
             xmlhttp = new XMLHttpRequest();
         }else{
@@ -305,6 +313,7 @@
             xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState==4 && xmlhttp.status==200){
                     alert(xmlhttp.responseText);
+                    navigate_main_content('updateUserDetails.php');
                 }
             }
             var query = "userId="+ document.getElementById('userLeaveUpdateFormUserId').value + "&leaveType="+ document.getElementById('userLeaveUpdateFormLeaveType').value + "&newValue="+ document.getElementById('userLeaveUpdateFormNewValue').value;
@@ -337,8 +346,41 @@
             rejectApplication(LeaveDetailId,comment);
     }
 
-    </script>
+    var allLeaves = new Array();
 
+    function readyDeleteApplication(leaveDetailId, checked){
+        if(checked==true){
+            allLeaves.push(leaveDetailId);
+        }else{
+            for (var i = allLeaves.length - 1; i >= 0; i--) {
+                if (allLeaves[i]==leaveDetailId) {
+                    allLeaves[i] = "";
+                    break;
+                };
+            };
+        };
+    }
+
+    function deleteApplications(){ 
+        if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                alert(xmlhttp.responseText);
+                navigate_box('outbox');
+            }
+        }
+        xmlhttp.open('GET', 'deleteApplication.php?allLeaves='+JSON.stringify(allLeaves)+'&allLeavesCount='+allLeaves.length, true);
+        xmlhttp.send();              
+    }
+    </script>
+    
+    <div class="footer l-box is-center">
+        Made by IIT Indore CS-208 Group 1 (2014) | Aayushi Malviya | Sayalee Bhanavase | Sriram Ravindran | Rajkumar Passedulla
+    </div>
 
 </body>
 

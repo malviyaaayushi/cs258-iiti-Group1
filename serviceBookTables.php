@@ -118,31 +118,14 @@
 </table>
 
 <table id = 'qualifyingTable' class = 'pure-table' 'pure-table-horizontal'>
-	<tr class = 'pure-table-odd'>
-		<td colspan = "2">Period</td>
-		<td rowspan = "2" width = "200px">Post held</td>
-		<td rowspan = "2" width = "400px">Purpose for which it qualifies</td>
+	<tr>
+		<th colspan = "2">Period</th>
+		<th rowspan = "2" width = "200px">Post held</th>
+		<th rowspan = "2" width = "400px">Purpose for which it qualifies</th>
 	</tr>		
-	<tr class = 'pure-table-odd'>
-		<td width = "120px">From</td>
-		<td width = "120px">To</td>				
+	<tr>
+		<th width = "120px">From</th>
+		<th width = "120px">To</th>				
 	</tr>			
 	<?php echo displayQualifyingServices($user->get_qualifying_services()); ?>
-</table>
-
-<table id = 'foreignTable' class = 'pure-table' 'pure-table-horizontal'>
-	<tr class = 'pure-table-odd'>
-		<td colspan = "2">Period</td>
-		<td rowspan = "2" width = "200px">Post held and name of Employer</td>
-		<td rowspan = "2" width = "400px">Purpose for which it qualifies</td>
-		<td rowspan = "2" width = "400px">Leave and Pension / CPF Contribution payable </td>
-		<td rowspan = "2" width = "400px">Leave and Pension / CPF Contribution received</td>
-		<td rowspan = "2" width = "400px">M.R. No</td>
-		<td rowspan = "2" width = "400px">M.R. Date</td>
-	</tr>		
-	<tr >
-		<td width = "120px">From</td>
-		<td width = "120px">To</td>				
-	</tr>			
-	
 </table>

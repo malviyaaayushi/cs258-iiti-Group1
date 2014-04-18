@@ -9,7 +9,7 @@
 
 		$userId = 1;//$_SESSION['userId'];
 
-		$query = "SELECT * FROM leave_details_tb WHERE recommendingAuthority='$userId' OR approvingAuthority='$userId'";
+		$query = "SELECT * FROM leave_details_tb WHERE recommendingAuthority='$userId' OR approvingAuthority='$userId' ORDER by applyingDate DESC";
 
 		list_display_query($query, "readyDeleteApplication");
 

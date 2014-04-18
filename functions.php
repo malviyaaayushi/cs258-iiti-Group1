@@ -1,8 +1,10 @@
 <?php
+	include_once  'core/init.php';
 
 	function list_display_query($query, $onChangeFunction){
 		
-		$userId = 1;
+		$user = new user();	
+		$userId = $user->data()->id;
 
 		if($query_run = mysql_query($query)){
 
@@ -13,6 +15,7 @@
 			while($query_row = mysql_fetch_assoc($query_run)){
 
 				$applicantId = $query_row['userId'];
+				echo "<div class='line-separator'></div>";
 
 				echo "<li><div style='float:left;width:30px;'><input type='checkbox' style='margin-left:10px;' onchange='".$onChangeFunction."(".$query_row['leaveDetailId'].", this.checked);'></div>";
 				
@@ -20,18 +23,24 @@
 					echo "<a href='#' onclick='showApplication(".$query_row['leaveDetailId'].", \"leave_details_tb\");'>";						
 				}else if($onChangeFunction=="readyRestoreApplication"){
 					echo "<a href='#' onclick='showApplication(".$query_row['leaveDetailId'].", \"deleted_applications_tb\");'>";						
-				}			
-				
-            	echo "<font color='#CCC'>".$query_row['userName']."</font>: <font size='2px'>";
+				}	
 
-                if($query_row['recommendingAuthority']==$userId){
+				if(($query_row['recommendingAuthority']==$userId && $query_row['leaveStatus']=='1')||($query_row['approvingAuthority']==$userId && $query_row['leaveStatus']=='2')){
+        				echo "<font color='white' >".$query_row['userName'].": "; 
+				}
+		        	else {
+		        		echo "<font color='#888888 '>".$query_row['userName'].": "; 
+		        	}
+
+
+                		if($query_row['recommendingAuthority']==$userId){
 					echo 'Recommend ';
 				}else if($query_row['approvingAuthority']==$userId){
 					echo 'Approve ';
 				}
 
 				echo $query_row['leaveDuration']." days ";
-				if($query_row['leaveType']=='casualLeave'){
+				if($query_row['leaveType']=='casualLeaveBalance'){
 					echo "Casual Leave";
 				}else if($query_row['leaveType']=='specialClBalance'){
 					echo "Special CL";
@@ -76,9 +85,7 @@
 		for ($i=0; $i < $allLeavesCount; $i++) { 
 			
 			$leaveDetailId = $allLeaves[$i];
-
 			if(!empty($leaveDetailId)){
-				
 				$query="SELECT * FROM leave_details_tb WHERE leaveDetailId='$leaveDetailId'";
 				if($query_run=mysql_query($query)){
 					$query_row=mysql_fetch_assoc($query_run);
@@ -88,7 +95,9 @@
 						}
 
 						$query_vars = $query_vars." leaveDetailId='".$leaveDetailId."'";
-				
+						
+					}else{
+						echo 'The starting date of leave(s) has been passed. ';
 					}
 					
 				}
@@ -121,6 +130,7 @@
 					}
 				}
 			}else{
+				echo mysql_error();
 				if($from=="leave_details_tb"){	
 					echo "Failed to delete application(s)";	
 				}else if($from=="deleted_applications_tb"){	

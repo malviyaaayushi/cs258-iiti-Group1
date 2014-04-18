@@ -15,12 +15,10 @@
 
 			$query = "UPDATE `leave_balance_tb` SET `".$leaveType."`= {$newValue} WHERE `userId`= {$userId}";
 
-			echo $query;
-
 			if($query_run = mysql_query($query)){
 
 				echo "Changes made successfully";
-
+				
 			}else{
 				echo mysql_error();
 				echo "Could not make changes";

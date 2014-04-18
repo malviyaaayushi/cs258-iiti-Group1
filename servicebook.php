@@ -8,34 +8,19 @@ $user = new user();
         redirect::to('login.php');
     }
 	function displayQualifyingServices($array){
-		$string  = '';		
-		foreach($array->results() as $item){			
-			$string .= '<tr><td>' . $item->from . '</td>' .
-					  '<td>' . $item->to . '</td>' .
-					  '<td>' . $item->postHeld . '</td>' .
-					  '<td>' . $item->purpose . '</td></tr>';
-		
-		}
-		return $string;
+	$string  = '';		
+	foreach($array->results() as $item){			
+		$string .= '<tr><td>' . $item->from . '</td>' .
+				  '<td>' . $item->to . '</td>' .
+				  '<td>' . $item->postHeld . '</td>' .
+				  '<td>' . $item->purpose . '</td></tr>';
+	
 	}
-
-	function displayForeignServices($array){
-		$string  = '';		
-		foreach($array->results() as $item){			
-			$string .= '<tr><td>' . $item->fromPeriod . '</td>' .
-					  '<td>' . $item->toPeriod . '</td>' .
-					  '<td>' . $item->foreignEmployerDetails . '</td>' .
-					  '<td>' . $item->LPCPFreceived . '</td>' .
-					  '<td>' . $item->LPCPFreceived . '</td>' .
-					  '<td>' . $item->MRNo . '</td>' .
-					  '<td>' . $item->MRDate . '</td>' .
-					  '<td>' . $item->LPCPFpayable . '</td></tr>';
-		}
-		return $string;	
-	}		
-
-	$user->biodata();
-	$user->certificate();
+	return $string;
+}
+$user->biodata();
+$user->certificate();
+$user->qualifying_service();
 
 ?>
 <style type="text/css">
@@ -48,7 +33,7 @@ $user = new user();
 		height:100%;
 		margin:0 auto;
 	}
-	table#biodataTable, #certificateTable, #qualifyingTable, #foreignTable{
+	table#biodataTable, #certificateTable, #qualifyingTable{
 		position: relative;
 		line-height: 3;
 		width: 800px;
@@ -57,13 +42,14 @@ $user = new user();
 		margin-top: 98px;
 		background-color: white;
 	}	
-	#certificateTable, #qualifyingTable, #foreignTable{
-		display: none;
+	#certificateTable{
+		margin-left: -800px;
+		visibility: hidden;
 	}
-	#foreignTable{
-		width:1100px;
-	}
-
+	#qualifyingTable{
+		margin-left: -800px;	
+		visibility: hidden;
+	}	
 	#menu{
 		z-index: 0;
 		position:relative;
@@ -205,39 +191,16 @@ $user = new user();
 		</table>
 
 		<table id = 'qualifyingTable' class = 'pure-table' 'pure-table-horizontal'>
-			<tr class = 'pure-table-odd'>
-				<td colspan = "2">Period</td>
-				<td rowspan = "2" width = "200px">Post held</td>
-				<td rowspan = "2" width = "400px">Purpose for which it qualifies</td>
+			<tr>
+				<th colspan = "2">Period</th>
+				<th rowspan = "2" width = "200px">Post held</th>
+				<th rowspan = "2" width = "400px">Purpose for which it qualifies</th>
 			</tr>		
-			<tr class = 'pure-table-odd'>
-				<td width = "120px">From</td>
-				<td width = "120px">To</td>				
+			<tr>
+				<th width = "120px">From</th>
+				<th width = "120px">To</th>				
 			</tr>			
-			<?php 
-				$user->qualifying_service();
-				echo displayQualifyingServices($user->get_qualifying_services()); 
-			?>
-		</table>
-
-		<table id = 'foreignTable' class = 'pure-table' 'pure-table-horizontal'>
-			<tr class = 'pure-table-odd'>
-				<td colspan = "2">Period</td>
-				<td rowspan = "2" width = "200px">Post held and name of Employer</td>
-				<td rowspan = "2" width = "400px">Purpose for which it qualifies</td>
-				<td rowspan = "2" width = "400px">Leave and Pension / CPF Contribution payable </td>
-				<td rowspan = "2" width = "400px">Leave and Pension / CPF Contribution received</td>
-				<td rowspan = "2" width = "400px">M.R. No</td>
-				<td rowspan = "2" width = "400px">M.R. Date</td>
-			</tr>		
-			<tr class = 'pure-table-odd'>
-				<td width = "120px">From</td>
-				<td width = "120px">To</td>				
-			</tr>			
-			<?php
-				$user->foreign_services_compute();
-			 	echo displayForeignServices($user->get_foreign_services()); 
-			 ?>
+			<?php echo displayQualifyingServices($user->get_qualifying_services()); ?>
 		</table>
 
 		</div>

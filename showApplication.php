@@ -1,10 +1,9 @@
+
 <?php
 
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 		if(!isset($_SESSION['$userId'])){
-
-		 	$userId='1';
 
 		 	require_once('connect.inc.php');
 
@@ -14,6 +13,7 @@
 			$location = $_GET['location'];
 			include 'core/init.php';
 			$user=new user();
+			$userId = $user->data()->id;
 
 			if(!empty($leaveDetailId)){
 
@@ -38,8 +38,9 @@
 						$leaveStatus = $query_row['leaveStatus'];
 						$commentByApproving=$query_row['commentByApproving'];
 						$commentByRecommending=$query_row['commentByRecommending'];
-						connect_db('logincredentialsdb');
+
 						$query_find_user_details="SELECT * FROM profile_information_tb WHERE userId='$applicantsId'";
+
 						if( $mysql_run_login=mysql_query($query_find_user_details)){
 
 							if( mysql_num_rows($mysql_run_login)==1){
@@ -52,8 +53,8 @@
 									echo "<div class='header'><h1>".$query_row_login['Name']."</h1>
 										<h2>".$query_row_login['designation']."<div style='float:right;'>".date("d/m/Y", strtotime($applyingDate))." (".date("Gi.s", strtotime($applyingDate)).")</div></h2>";
 									
-									if($applicantsId==$user->data()->id){
-										if($leaveType=='halfPayLeaveBalance'){
+									if($applicantsId==$user->data()->id ){
+										if($leaveType=='halfPayLeaveBalance' && $location!="deleted_applications_tb"){
 
 											echo "<button class='pure-button' onclick='commute_leave(".$leaveDetailId.",".$leaveDuration.",".$query_row['leaveStatus'].");'>Commute Leave</button>";	
 										}
@@ -77,7 +78,7 @@
 							        		echo "<div style='margin:10%;'></div>";
 							        	}
 
-							        //removed class content below
+							        	//removed class content below
 									echo "<div style='width:90%;'>
 								            <table style='width:100%;align:center;'>
 										<tr class='table-li-even'><td>Applicant Name</td><td>".$applicantName."</td></tr>
@@ -122,38 +123,41 @@
 									}
 								        echo "<p>";
 								    if($userId==$query_row['approvingAuthority'] || $userId==$query_row['recommendingAuthority']){
-								    	echo "<textarea id='comment' placeholder='Comments...'></textarea>";
+								    	echo "<br><textarea id='comment' placeholder='Comments...'></textarea><br><br>";
 								    }
 								    if(!empty($commentByRecommending))
-								    	echo "Comments by Recommending Authority ".$commentByRecommending<br>;
+								    	echo "Comments by Recommending Authority: ".$commentByRecommending."<br>";
 								     if(!empty($commentByApproving))
-								    	echo "Comments by Approving Authority ".$commentByApproving<br><br>.;
+								    	echo "Comments by Approving Authority: ".$commentByApproving."<br><br>";
 
-									if($userId==$query_row['approvingAuthority']){
 
-					                    echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('approveApplication',".$_GET['leaveDetailId'].")\"";
+					                if($userId!=$applicantsId){
+								if($userId==$query_row['approvingAuthority']){
 
-					                    if($leaveStatus==3 || $leaveStatus==4 || $location=="deleted_applications_tb"){
-					                    	echo " disabled";
-					                    }
+									echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('approveApplication',".$_GET['leaveDetailId'].")\"";
 
-					                    echo ">Approve</a>";
-					                }else if($userId==$query_row['recommendingAuthority']){
-					                    echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('recommendApplication',".$_GET['leaveDetailId'].")\"";
-
-					                    if($leaveStatus==2 || $leaveStatus==4 || $location=="deleted_applications_tb"){
-					                    	echo " disabled";
-					                    }
-
-					                    echo ">Recommend</a>";
-					                }
-					                echo "  <a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('rejectApplication',".$_GET['leaveDetailId'].")\"";
-
-									if($leaveStatus==2 || $leaveStatus==3 || $leaveStatus==4 || $location=="deleted_applications_tb"){
+									if($leaveStatus==3 || $leaveStatus==4 || $location=="deleted_applications_tb"){
 										echo " disabled";
 									}
 
-					                echo ">Reject</a>";
+									echo ">Approve</a>";
+						                }else if($userId==$query_row['recommendingAuthority']){
+						                    echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('recommendApplication',".$_GET['leaveDetailId'].")\"";
+
+						                    if($leaveStatus==2 || $leaveStatus==4 || $location=="deleted_applications_tb"){
+						                    	echo " disabled";
+						                    }
+
+						                    echo ">Recommend</a>";
+						                }
+						                echo "  <a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('rejectApplication',".$_GET['leaveDetailId'].")\"";
+
+										if($leaveStatus==4 || $location=="deleted_applications_tb"){
+											echo " disabled";
+										}
+
+						                echo ">Reject</a>";
+						            }
 					                
 					                echo "</p>";
 								

@@ -7,9 +7,12 @@
 
 		connect_db('logincredentialsdb');
 
-		$userId = 1;//$_SESSION['userId'];
+		include_once  'core/init.php';
+		$user = new user();	
 
-		$query = "SELECT * FROM deleted_applications_tb WHERE recommendingAuthority='$userId' OR approvingAuthority='$userId'";
+		$userId = $user->data()->id;
+
+		$query = "SELECT * FROM deleted_applications_tb WHERE userId='$userId' ORDER by applyingDate DESC";
 
 		list_display_query($query, "readyRestoreApplication");
 

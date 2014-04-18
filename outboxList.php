@@ -9,7 +9,7 @@
 
 		$userId = 1;//$_SESSION['userId'];
 
-		$query = "SELECT * FROM leave_details_tb WHERE userId='$userId'";
+		$query = "SELECT * FROM leave_details_tb WHERE userId='$userId' ORDER by applyingDate DESC";
 
 		list_display_query($query, "readyDeleteApplication");
 

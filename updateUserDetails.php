@@ -1,22 +1,3 @@
-<style type="text/css">	
-	.container-user-detail{
-		z-index: 2;
-		width: 40%;
-		height: 30%;
-		padding: 10px;
-		margin:0 auto;
-		color:black;
-		margin-top: 100px;
-		background-color: rgba(0,0,0,0.7);
-		border-radius: 5px;
-	}
-</style>
-
-<div class="container-user-detail">
-	<?php  
-		include_once 'userLeaveUpdateForm.php';
-	?>
-</div>
 
 
 <script type="text/javascript">
@@ -41,6 +22,55 @@
 
 </script>
 
+<style type="text/css">	
+	.container-user-detail{
+		z-index: 2;
+		width: auto;
+		height: auto;
+		padding: 10px;
+		margin:0 auto;
+		color:white;
+		margin-top: 100px;
+		border-radius: 5px;
+	}
+</style>
+
+<div class="container-user-detail">
+
+	<div class="pure-form pure-form-aligned">
+
+		<div class = "pure-control-group">
+			<label>User Id</label>
+			<input type="int" id="userLeaveUpdateFormUserId"> 			
+		</div>
+		<div class = "pure-control-group">
+			<label>Type of Leave</label>
+			<select  id="userLeaveUpdateFormLeaveType" class="pure-input-1-1">
+				<option value="specialLeaveBalance"> Special Leave </option>
+				<option value="specialClBalance">Special CL </option>
+				<option value="halfPayLeaveBalance"> Half Pay (Non-Commuted) Leave</option>
+				<option value="commutedLeaveBalance"> Half Pay (Commuted) Leave </option>
+				<option value="earnedLeaveBalance"> Earned Leave </option>
+				<option value="extraordinaryLeaveBalance"> Extraordinary Leave </option>
+				<option value="maternityLeaveBalance"> Maternity Leave </option>
+				<option value="hospitalLeaveBalance"> Hospital Leave </option>
+				<option value="quarantineLeaveBalance ">Quarantine Leave </option>
+				<option value="leaveNotLeaveBalance"> Leave Not Leave </option>
+				<option value="sabbaticalLeaveBalance">Sabbatical Leave </option>
+				<option value="vacationBalance"> Vacation Balance</option>
+			</select>
+		</div>
+		<div class = "pure-control-group">
+			<label>New value</label>
+			<input id="userLeaveUpdateFormNewValue" type="int">
+		</div>
+		<div class = "pure-control-group">
+			<button  class='pure-button pure-button-primary' onclick="submitUserLeaveUpdateForm();">Submit</button>
+		</div>
+		
+	</div>
+
+</div>
 
 <div class="container-user-detail">
 	

@@ -15,9 +15,9 @@
 			connect_db('logincredentialsdb');
 
 			if($type=="inbox"){
-				$query = "SELECT * FROM leave_details_tb WHERE userName LIKE '%".$keyword."%' AND recommendingAuthority='$userId' OR approvingAuthority='$userId'";				
+				$query = "SELECT * FROM leave_details_tb WHERE userName LIKE '%".$keyword."%' AND (recommendingAuthority='$userId' OR approvingAuthority='$userId')";				
 			}else if($type=="trashBox"){
-				$query = "SELECT * FROM deleted_applications_tb WHERE userName LIKE '%".$keyword."%' AND recommendingAuthority='$userId' OR approvingAuthority='$userId'";				
+				$query = "SELECT * FROM deleted_applications_tb WHERE userName LIKE '%".$keyword."%' AND (recommendingAuthority='$userId' OR approvingAuthority='$userId')";				
 			}else if($type=="outbox"){
 				$query = "SELECT * FROM leave_details_tb WHERE userName LIKE '%".$keyword."%' AND userId='$userId'";				
 			}
