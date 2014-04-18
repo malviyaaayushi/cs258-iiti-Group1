@@ -10,7 +10,7 @@
 			connect_db('logincredentialsdb');
  
 
-			$query = "UPDATE leave_details_tb SET leaveStatus='3', commentByRecommending='$comment' WHERE leaveDetailId='$leaveDetailId'";
+			$query = "UPDATE leave_details_tb SET leaveStatus='2', commentByRecommending='$comment' WHERE leaveDetailId='$leaveDetailId'";
 
 			if($query_run = mysql_query($query)){
 				echo "Application Recommended";
