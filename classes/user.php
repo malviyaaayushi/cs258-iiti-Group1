@@ -8,6 +8,7 @@
 				$_biodata,
 				$_certificate,
 				$_qualifyingService,
+				$_foreignService,
 				$_ltcDeclaration,
 				$_ltcDependents,
 				$_serviceRegister;
@@ -78,6 +79,10 @@
 			$this->_qualifyingService = $this->_db->get('previous_qualifying_service_tb', array('userID', '=', $this->_data->id, 'ORDER BY `from`'));			
 		}
 
+		public function foreign_services_compute(){
+			$this->_foreignService = $this->_db->get('foreign_service_tb', array('userID', '=', $this->_data->id, 'ORDER BY `fromPeriod`'));			
+		}
+
 		public function compute_LTC_declaration(){
 			$this->_ltcDeclaration = $this->_db->get('ltc_declaration_tb', array('userID', '=', $this->_data->id))->first();
 		}
@@ -128,6 +133,9 @@
 		}
 		public function get_qualifying_services(){
 			return $this->_qualifyingService;
+		}
+		public function get_foreign_services(){
+			return ($this->_foreignService);
 		}
 		public function get_ltc_declaration(){
 			return $this->_ltcDeclaration;
