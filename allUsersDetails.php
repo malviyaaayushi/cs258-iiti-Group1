@@ -1,11 +1,10 @@
-
 <div>
-	<!--input type='text' id ='adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:40%;margin-right:10px;float:right;' onkeyUp='searchAdminPanel(this.value)'-->
-</div>
+	<form class="pure-form" id="search_form" style='display:inline;'>
+	   <input type='text' id = 'adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:40%;margin-left:7%;margin-top:5%;' onkeyUp='searchAdminPanel(this.value)'>
+    	</form>
+</div >
 
-<div id='userLeaveRecords'>
-
-</div> 
+<!--<div id='userLeaveRecords'></div> -->
 
 <div>
 
