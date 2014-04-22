@@ -1,4 +1,3 @@
-
     function showApplication(leaveDetailId, location){
         if(window.XMLHttpRequest){
             xmlhttp = new XMLHttpRequest();
@@ -23,6 +22,7 @@
         xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState==4 && xmlhttp.status==200){
                 alert(xmlhttp.responseText);
+                window.location.reload();
             }
         }
         xmlhttp.open('GET', 'approveApplication.php?leaveDetailId='+leaveDetailId+'&comment='+comment, true);
@@ -38,6 +38,7 @@
         xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState==4 && xmlhttp.status==200){
                 alert(xmlhttp.responseText);
+                window.location.reload();
             }
         }
         xmlhttp.open('GET', 'recommendApplication.php?leaveDetailId='+leaveDetailId+'&comment='+comment, true);
@@ -53,6 +54,7 @@
         xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState==4 && xmlhttp.status==200){
                 alert(xmlhttp.responseText);
+                window.location.reload();
             }
         }
         xmlhttp.open('GET', 'rejectApplication.php?leaveDetailId='+leaveDetailId+'&comment='+comment, true);
