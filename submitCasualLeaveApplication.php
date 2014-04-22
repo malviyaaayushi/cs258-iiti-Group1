@@ -66,11 +66,11 @@
 						}
 					
 					}else{
-						echo "Please adher to maxlength of the field \'Reason for leave\'";
+						echo "Sorry, an error occured. Please try sometime later.";
 					}
 				
 				}else{
-					echo "All fields are required";
+					echo "Please adher to maxlength of the field \'Reason for leave\'";
 				}			
 			
 			}else{

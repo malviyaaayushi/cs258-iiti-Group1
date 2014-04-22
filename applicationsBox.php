@@ -377,6 +377,25 @@
         xmlhttp.open('GET', 'deleteApplication.php?allLeaves='+JSON.stringify(allLeaves)+'&allLeavesCount='+allLeaves.length, true);
         xmlhttp.send();              
     }
+    
+    function searchAdminPanel(keyword){
+
+        document.getElementById('biodataTable').style.display = 'none';
+        if(window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }else{
+            xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById('mainContent').innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open('GET', 'searchAdminPanel.php?keyword='+keyword, true);
+        xmlhttp.send();
+
+    }
+
     </script>
     
 </body>

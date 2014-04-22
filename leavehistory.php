@@ -121,37 +121,10 @@ function displaytable($LeaveType){
 				<h1>Length of Service</h1>
 				<table style='width:50%;align:center;'>
 					<tr class='table-li-odd'><td>Joined from -</td><td>2005</td></tr>
-					<tr class='table-li-even'><td>To -</td><td>2010</td></tr>
-					<tr class='table-li-odd'><td>Number of years completed</td><td>5 years</td></tr>
+					<tr class='table-li-even'><td>To -</td><td><?php $time=time(); echo date('M/Y',$time); ?></td></tr>
+					<tr class='table-li-odd'><td>Number of years completed</td><td>---</td></tr>
 				</table>
 					<div id="leaveHistory" style="display:none;">
-						<table id = 'leaveContent' style='width:50%;align:center;' >
-							
-								<tr class='table-li-even' ><td colspan="2">Particaulars of service in the half-year of a calender year</td><td colspan="2"></td></tr>
-								
-								<tr class='table-li-odd'>
-										<td width="25%">From -</td>
-										<td width="25%">1 Jan 2012</td>
-										<td width="25%">To -</td>
-										<td width="25%">5 Jan 2012</td>
-								</tr>
-								<tr class='table-li-even'>
-									<td colspan="3">Completed months of service in the half year of a calender year</td>
-									<td >4 months</td>
-								</tr>
-								<tr class='table-li-odd'>
-									<td colspan="3">Earned Leave credited at the beginning of the half-year</td>
-									<td ><br></td>
-								<tr>
-								<tr class='table-li-even'>
-									<td colspan="3">Total No. of days of E.O.L./Dies non</td>
-									<td >$EOLeave<br></td>
-								<tr>
-								<!--<tr class='table-li-odd'>
-									<td colspan="3">Total Earned Leave at credit in Days</td>
-									<td ><br></td>
-								</tr>-->
-						</table>
 						<h1 style='padding-top:60px'>Earned Leaves</h1>
 						 <?php displayEarnedLeaves();?>
 					</div>
