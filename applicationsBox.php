@@ -173,9 +173,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src = 'ajaxCalls.js'></script>
 <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>
-
 <!-- Script to keep page from scrolling -->
 <script>
     YUI().use('node-base', 'node-event-delegate', function (Y) {
@@ -381,9 +379,5 @@
     }
     </script>
     
-    <div class="footer l-box is-center">
-        Made by IIT Indore CS-208 Group 1 (2014) | Aayushi Malviya | Sayalee Bhanavase | Sriram Ravindran | Rajkumar Passedulla
-    </div>
-
 </body>
 

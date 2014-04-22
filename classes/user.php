@@ -31,7 +31,7 @@
 			}
 		}
 
-		public function create($login, $profile, $biodata, $certification){
+		public function create($login, $profile, $biodata, $certification, $declaration){
 
 			if(!$this->_db->insert('login_credentials_tb', $login)){
 				echo "Error1";
@@ -49,7 +49,25 @@
 				echo "Error4";
 				throw new exception ('There was an error creating the account');
 			}
+			if(!$this->_db->insert('ltc_declaration_tb', $declaration)){
+				echo "Error5";
+				throw new exception ('There was an error creating the account');
+			}
+		}
 
+		public function add_previous_services($previousServices){
+			if(!$this->_db->insert('previous_qualifying_service_tb', $previousServices)){
+				echo "Error6";
+				throw new exception ('There was an error creating the account');
+			}
+			echo "Added entry from User!";
+		}
+
+		public function add_foreign_services($foreignServices){
+			if(!$this->_db->insert('foreign_service_tb', $foreignServices)){
+				echo "Error7";
+				throw new exception ('There was an error creating the account');
+			}
 		}
 
 		public function find($field, $user = NULL){

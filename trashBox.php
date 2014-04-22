@@ -5,7 +5,7 @@
     </ul>
 </div>
 
-<div id="main"  style="margin-top:90px;z-index:1;padding-left:150px;width:60%;float:right;height:100%;background:white;overflow:scroll;">
+<div id="main"  style="margin-top:90px;z-index:1;padding-left:150px;width:60%;float:right;height:100%;background:white;">
 	<div id='applicationContent' style="none">
     	<?php require_once 'welcome_content.php'; ?>
     </div>

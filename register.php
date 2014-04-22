@@ -76,10 +76,17 @@
 								'RBDate' => input::get('schemeDate'),
 								'pranNo' => input::get('pranNo'),
 								'npsFileNo' => input::get('npsFileNo'),
+								),
+								array(
+								'userID' => input::get('username'),
+								'homeTown' => input::get('homeTown'),
+								'taluka' => input::get('taluka'),
+								'district' => input::get('district'),
+								'state' => input::get('state'),
+								'nearestRlyStation' => input::get('nearestRlyStation')
 								)
 							);
-
-					// session::flash('home', 'You have successfully been registered');
+					
 					echo "About to redirect";
 					redirect::to('applicationsBox.php?page=adminPanel');
 
@@ -150,11 +157,7 @@
 				<label for = "password_again">Confirm Password: </label>
 				<input type = "password" id="password_again" name="password_again">
 			</div>
-<!-- </form>
-</div>
 
-<div id = 'profile'>
-	<form action = "" method = "POST" class="pure-form pure-form-aligned" id = 'profileForm'>  -->
 	<h3>PROFILE INFO</h3>
 			<div class = "pure-control-group">
 				<label>Designation</label>
@@ -172,11 +175,7 @@
 				<label>Sex</label>
 				<input type="text" id = 'Sex' name = 'Sex' value = "<?php echo escape(input::get('Sex'));?>"> 
 			</div>
-	<!-- </form>
-</div>
 
-<div id = 'Biodata' >
-	<form action = "" method = "POST" class="pure-form pure-form-aligned" id = 'biodataForm' value = "<?php// echo escape(input::get('biodataForm'));?>"> -->
 	<h3>BIODATA</h3>
 			<div class = "pure-control-group">
 				<label>Father's Name</label>
@@ -272,9 +271,40 @@
 				<input type = 'text' id = 'npsFileNo' name = 'npsFileNo' value = "<?php echo escape(input::get('npsFileNo'));?>">
 			</div>
 
+		<h3> DECLARATION OF HOME TOWN FOR LTC</h3>
+			<div class = "pure-control-group">
+				<label>Hometown</label>
+				<input type = 'text' id = 'homeTown' name = 'homeTown' value = "<?php echo escape(input::get('homeTown'));?>">
+			</div>
+			<div class = "pure-control-group">
+				<label>Taluka</label>
+				<input type = 'text' id = 'taluka' name = 'taluka' value = "<?php echo escape(input::get('taluka'));?>">
+			</div>
+			<div class = "pure-control-group">
+				<label>District</label>
+				<input type = 'text' id = 'district' name = 'district' value = "<?php echo escape(input::get('district'));?>">
+			</div>
+			<div class = "pure-control-group">
+				<label>State</label>
+				<input type = 'text' id = 'state' name = 'state' value = "<?php echo escape(input::get('state'));?>">
+			</div>
+			<div class = "pure-control-group">
+				<label>Nearest Railway Station</label>
+				<input type = 'text' id = 'nearestRlyStation' name = 'nearestRlyStation' value = "<?php echo escape(input::get('nearestRlyStation'));?>">
+			</div>
+			<em>Reasons for declaration</em>
+			<div class = "pure-control-group">
+				<label>Reason 1 :</label>
+				<input type = 'text' id = 'reasonOneForDeclaration' name = 'reasonOneForDeclaration' value = "<?php echo escape(input::get('reasonOneForDeclaration'));?>">
+			</div>
+			<div class = "pure-control-group">
+				<label>Reason 2 :</label>
+				<input type = 'text' id = 'reasonTwoForDeclaration' name = 'reasonTwoForDeclaration' value = "<?php echo escape(input::get('reasonTwoForDeclaration'));?>">
+			</div>
+
 			<input type = "hidden"	name = "token" value = "<?php echo token::generate();?>">			
 			<div class = 'pure-control'>
-					<input type = "submit" class='pure-button pure-button-primary' onclick="navigate('adminPanel.php');" value = 'Register' width= "100px">
+				<input type = "submit" class='pure-button pure-button-primary' onclick="navigate('adminPanel.php');" value = 'Register' width= "100px">
 			</div>
 	</form>
 </div>
