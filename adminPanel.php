@@ -46,7 +46,7 @@
 		<div id = 'menu-admin'>
 				<button class='pure-button pure-button-primary width' id = 'registerButton' onclick = "navigate_main_content('register.php');">Register</button>
 				<button class='pure-button pure-button-primary width' id = 'allUsersButton' onclick = "navigate_main_content('allUsersDetails.php');">All Users</button>
-				<button class='pure-button pure-button-primary width' id = 'updateUserDetailsButton' onclick = "navigate_main_content('updateUserDetails.php');">Update User Details</button>
+				<button class='pure-button pure-button-primary width' id = 'updateUserDetailsButton' onclick = "navigate_main_content('updateUserDetails.php');">Update Leave Details</button>
 				<button class='pure-button pure-button-primary width' id = 'updateDetailsButton' onclick = "navigate_main_content('addServices.php');">Update Details</button>
 		</div>		
 
