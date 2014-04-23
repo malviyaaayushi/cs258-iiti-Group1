@@ -126,37 +126,35 @@
 								    	echo "<br><textarea id='comment' placeholder='Comments...'></textarea><br><br>";
 								    }
 								    if(!empty($commentByRecommending))
-								    	echo "Comments by Recommending Authority: ".$commentByRecommending."<br>";
+								    	echo "Comments by Recommending Authority: ".$commentByRecommending."<br><br>";
 								     if(!empty($commentByApproving))
 								    	echo "Comments by Approving Authority: ".$commentByApproving."<br><br>";
 
 
 					                if($userId!=$applicantsId){
-								if($userId==$query_row['approvingAuthority']){
+										if($userId==$query_row['approvingAuthority']){
 
-									echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('approveApplication',".$_GET['leaveDetailId'].")\"";
+											if($leaveStatus==3 || $leaveStatus==4 || $location=="deleted_applications_tb"){
+												echo "<a href='#' class='pure-button pure-button-primary'  disabled>Approve</a>";
+											}else{
+												echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('approveApplication',".$_GET['leaveDetailId'].")\">Approve</a>";
+											}
 
-									if($leaveStatus==3 || $leaveStatus==4 || $location=="deleted_applications_tb"){
-										echo " disabled";
-									}
-
-									echo ">Approve</a>";
 						                }else if($userId==$query_row['recommendingAuthority']){
-						                    echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('recommendApplication',".$_GET['leaveDetailId'].")\"";
 
-						                    if($leaveStatus==2 || $leaveStatus==4 || $location=="deleted_applications_tb"){
-						                    	echo " disabled";
-						                    }
+											if($leaveStatus==2 || $leaveStatus==4 || $location=="deleted_applications_tb"){
+												echo "<a href='#' class='pure-button pure-button-primary'  disabled>Recommend</a>";
+											}else{
+												echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('recommendApplication',".$_GET['leaveDetailId'].")\">Recommend</a>";
+											}
 
-						                    echo ">Recommend</a>";
 						                }
-						                echo "  <a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('rejectApplication',".$_GET['leaveDetailId'].")\"";
 
-										if($leaveStatus==4 || $location=="deleted_applications_tb"){
-											echo " disabled";
+										if($leaveStatus==4 || $leaveStatus==3 || $location=="deleted_applications_tb"){
+											echo "<a href='#' class='pure-button pure-button-primary'  disabled>Reject</a>";
+										}else{
+											echo "<a href='#' class='pure-button pure-button-primary' onclick=\"sendLeave('rejectApplication',".$_GET['leaveDetailId'].")\">Reject</a>";
 										}
-
-						                echo ">Reject</a>";
 						            }
 					                
 					                echo "</p>";

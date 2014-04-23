@@ -47,6 +47,7 @@ ga('send', 'pageview');
     	<a class = 'headerLink' href = "#" style="float:left;" title = 'Go to IITI Home Page'>ONLINE ADMINISTRATION PORTAL</a>
         <div id = "links">
             <?php if($loggedIn)echo "<a href = 'logout.php' class='headerLink' id = 'logout'>Logout</a>";?>
+            <a> <?php echo "<a class='headerLink' >" . $user->data()->name . "</a>";?> 
         </div>
     </div>
     <div class='.clearFloat'></div>

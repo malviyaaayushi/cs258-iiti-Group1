@@ -7,7 +7,7 @@
 
 					$user->add_service_register_entry(array(
 							'userID' => input::get('userBeingUpdated'),
-							'postAndPayDescription' => input::get('fromPrevious'),
+							'postAndPayDescription' => input::get('description'),
 							'permanentOrTemporary' => input::get('permanentOrTemporary'),
 							'incumbent' => input::get('incumbent'),
 							'postHeldPermanently' => input::get('postHeldPermanently'),
@@ -45,7 +45,7 @@
 	
 </style>
 <div id = 'registration_tb'>
-	<form action = "addServices.php" method = "POST" class="pure-form pure-form-aligned">
+	<form action = "addServiceRegister.php" method = "POST" class="pure-form pure-form-aligned">
 			<div class = "pure-control-group">
 				<label for = "userBeingUpdated">UserID being updated: </label>
 				<input type = "text" id = "userBeingUpdated" value = "<?php echo escape(input::get('userBeingUpdated'));?>" name = "userBeingUpdated" width = "200px">
@@ -56,28 +56,28 @@
 				<input type = "text" id = "description" value = "<?php echo escape(input::get('description'));?>" name = "description" width = "200px">
 			</div>			
 			<div class = "pure-control-group">
-				<label for = "permanentOrTemporary">From :</label>
+				<label for = "permanentOrTemporary">Whether Post is permanent or temporary</label>
 				<input type="text" name = "permanentOrTemporary" id = "permanentOrTemporary"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label  for = "incumbent">To  </label>
+				<label  for = "incumbent">Whether the incumbent posted permanently or to officiate</label>
 				<input type = "text" id="incumbent" name="incumbent">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "postHeldPermanently">Post held  </label>
+				<label for = "postHeldPermanently">Post held permanently </label>
 				<input type = "text" name = "postHeldPermanently" id="postHeldPermanently" autocomplete="off">
 			</div>
 
 			<div class = "pure-control-group">
-				<label for = "payInPermanentPost">Purposes for which it qualifies </label>
+				<label for = "payInPermanentPost">Pay in the permanent post</label>
 				<input type = "text" name = "payInPermanentPost" id="payInPermanentPost" autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "officiatingPay">From </label>
+				<label for = "officiatingPay">Officiating Pay </label>
 				<input type = "text" name = "officiatingPay" id="officiatingPay"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "otherPay"> To </label>
+				<label for = "otherPay"> Other emoluments falling under 'pay' </label>
 				<input type = "text" name = "otherPay" id="otherPay"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
@@ -89,19 +89,19 @@
 				<input type = "date" name = "toPeriod" id="toPeriod"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "events1to8"> Post held and name of Foreign Employer</label>
+				<label for = "events1to8"> Events affecting Columns 1 to 8</label>
 				<input type = "text" name = "events1to8" id="events1to8"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "leaveDescription">Leave and Pension / CPF Contribution payable by </label>
+				<label for = "leaveDescription">Nature and duration of leave taken </label>
 				<input type = "text" name = "leaveDescription" id="leaveDescription"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "punishmentReference"> Leave and Pension / CPF Contribution actually received </label>
+				<label for = "punishmentReference"> Reference to any recorded punishment, censure, award etc. </label>
 				<input type = "text" name = "punishmentReference" id="punishmentReference"  autocomplete="off">
 			</div>
 			<div class = "pure-control-group">
-				<label for = "remarks"> M.R. Number </label>
+				<label for = "remarks"> Remarks </label>
 				<input type = "text" name = "remarks" id="remarks"  autocomplete="off">
 			</div>
 			<input type = "hidden"	name = "token" value = "<?php echo token::generate();?>">			

@@ -27,10 +27,11 @@ html, body{
 #loginFault{
     display: block;
     padding: 0 0 5px 2px;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+    /*text-shadow: 0 1px 0 rgba(255,255,255,0.8);*/
     font-size: 12px;   
     font-style: italic;
-    color: red; 
+    color: white; 
+    font-size:14px;
 }
 .loginForm input[type=text],
 .loginForm input[type=password] {

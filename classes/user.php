@@ -70,6 +70,13 @@
 			}
 		}
 
+		public function add_service_register_entry($serviceRegisterEntry){
+			if(!$this->_db->insert('service_register_tb', $serviceRegisterEntry)){
+				echo "Error8";
+				throw new exception ('There was an error creating the account');
+			}
+		}
+
 		public function find($field, $user = NULL){
 			if($user){
 				$data = $this->_db->get('login_credentials_tb', array($field, '=', $user));  

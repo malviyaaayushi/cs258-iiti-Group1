@@ -5,7 +5,7 @@
 
 	<div style="background:white;height:100%;">
 		<div style="width:100%;line-height:2.5;">
-			<b >Application:</b>
+			<b >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application:</b>
 			<select id="applicationType" name="applicationType" class="pure-input-1-1" onchange="get_new_application_fields(this.value);">
 				<option value="casualLeaveApplication" selected>Casual Leave Application</option>
 				<option value="nonClLeaveApplication">Non Casual Leave Application</option>

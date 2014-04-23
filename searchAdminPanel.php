@@ -2,7 +2,7 @@
 
 <div >
     <form class="pure-form" id="search_form" style='display:inline;'>
-    <input type='text' id = 'adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:40%;margin-left:7%;margin-top:5%;' onkeyUp='searchAdminPanel(this.value)'>
+    <input type='text' id = 'adminSearchBox' class='pure-form input-rounded' placeholder='Search people...' style='width:100%;margin-left:7%;margin-top:5%;' onkeyUp='searchAdminPanel(this.value)'>
     </form>
 </div >
 

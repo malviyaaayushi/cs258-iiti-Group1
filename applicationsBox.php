@@ -150,6 +150,9 @@
                         </li>'; 
                 }
             ?>
+            <li>
+                <a href="#" id="settings" onclick="navigate('settings');">Change Password</a>
+            </li>
         </ul>
 </div>
 

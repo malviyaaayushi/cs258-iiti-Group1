@@ -23,6 +23,8 @@
 	#changePassword{
 		margin-top:100px;
 		margin-left:100px;
+		width:500px;
+		height: 500px;
 	}
 </style>
 
